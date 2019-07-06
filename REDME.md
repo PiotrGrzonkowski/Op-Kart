@@ -1,0 +1,1 @@
+Mała prężna firma :)
