@@ -13,7 +13,7 @@ function setIndex() {
     for (i = 0; i < li.length; i++) {
         if (li.length !== 0) {
             li[i].setAttribute("data-key", counter)
-            li[i].lastElementChild.setAttribute("data-key", counter);
+            li[i].firstElementChild.setAttribute("data-key", counter);
             div[i].setAttribute("data-key", counter);
             liNested[i].setAttribute("data-key", counter + "a");
             divNested[i].setAttribute("data-key", counter + "a");
@@ -33,22 +33,28 @@ liToggleClass = e => {
 
     const li = document.querySelector(`.list>li[data-key="${index}"]`);
     const div = document.querySelector(`section.text>div[data-key="${index}"]`);
-    console.log(div)
+    const a = document.querySelector(`a[data-key="${index}"]`);
+    const p = document.querySelector(".main p");
+    p.classList.remove("start");
+
 
     if (e.target.dataset.key.length === 1) {
-        console.log("w if");
 
-        // const a = document.querySelector(`.list>li a[data-key="${index}"]`);
-        [...document.querySelectorAll('li')].map(li => li.classList.remove("active"));
-        [...document.querySelectorAll('div')].map(div => div.classList.remove("visible"));
-        li.classList.toggle("active");
-        div.classList.toggle("visible");
+        if (a.dataset.key === "0" && li.dataset.key === "0" || li.dataset.key === "2" && a.dataset.key === "2") {
+
+            // const a = document.querySelector(`.list>li a[data-key="${index}"]`);
+            [...document.querySelectorAll('li')].map(li => li.classList.remove("active"));
+            [...document.querySelectorAll('div')].map(div => div.classList.remove("visible"));
+            li.classList.toggle("active");
+            div.classList.toggle("visible");
 
 
 
-        if (li.dataset.key === "1") {
-            document.querySelector(".hidden").classList.toggle("move")
-
+        } else if (a.dataset.key === "1" && li.dataset.key === "1") {
+            document.querySelector(".hidden").classList.toggle("move");
+            [...document.querySelectorAll('li')].map(li => li.classList.remove("active"));
+            li.classList.toggle("active");
+            div.classList.toggle("visible");
         }
     }
 }
@@ -64,12 +70,13 @@ liNestedToggleClass = e => {
     const index = e.target.dataset.key;
     const liNested = document.querySelector(`.list li ul li[data-key="${index}"]`);
     const divNested = document.querySelector(`section.text div>div[data-key="${index}"]`);
-    console.log(divNested);
     [...document.querySelectorAll('li')].map(li => li.classList.remove("active"));
     [...document.querySelectorAll('div')].map(div => div.classList.remove("visible"));
+    // 
     liNested.classList.toggle("active");
     divNested.classList.toggle("visible");
     divNested.classList.toggle("noVisible");
+    [...document.querySelectorAll('div')].map(div => div.classList.remove("noVisible"));
 }
 
 
