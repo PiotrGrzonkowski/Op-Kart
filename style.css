@@ -472,7 +472,7 @@
         width: 22vw;
         position: relative;
         text-align: left;
-        z-index: 2;
+
 
     }
 
@@ -484,26 +484,21 @@
         justify-content: space-around;
         overflow: hidden;
 
-
-
-
     }
 
     .navi ul.list li {
         position: relative;
         list-style: none;
         font-size: 1.5rem;
-        margin: 20px 0 50px 20px;
+        margin: 150px 0 50px 60px;
         color: #999;
         cursor: pointer;
-
 
     }
 
     .navi li a {
         text-decoration: none;
         color: #aaa;
-
     }
 
     .navi li {
@@ -519,53 +514,38 @@
         position: relative;
     }
 
-
-
-
-
     .navi ul.hidden {
         position: relative;
     }
 
     .navi ul.hidden li {
         position: absolute;
-        top: 0;
+        top: -50px;
         left: 0;
         font-size: 0;
     }
 
     .navi ul.hidden.move li {
-        font-size: 1rem;
+        font-size: .8rem;
         position: absolute;
         margin: 20px 0;
         top: 0;
-        left: 150px;
-
+        left: 310px;
+        transition: .5s
     }
 
     .navi ul.hidden.move li:nth-child(1) {
-        top: -100px;
+        top: -250px;
     }
 
     .navi ul.hidden.move li:nth-child(2) {
-        top: -60px;
+        top: -100px;
     }
 
     .navi ul.hidden.move li:nth-child(3) {
-        top: -15px;
+        top: 50px;
     }
 
-
-
-
-    /* .navi ul.hidden li {
-        font-size: .9rem;
-        color: #ccc;
-        padding: 0;
-        margin: 0;
-
-
-    } */
 
     .text {
         position: relative;
@@ -576,14 +556,10 @@
         height: 50vh;
         color: navy;
         font-size: 1.2rem;
-        z-index: 1;
     }
 
 
 
-    section.text p:nth-child(1) {
-        font-size: 0;
-    }
 
     section.text p.start {
         position: relative;
@@ -592,8 +568,14 @@
         transform: translate(-50%, -50%);
         font-size: 4rem;
         text-align: center;
-
+        transition: 1s;
     }
+
+    section.text p.end {
+        font-size: 0;
+    }
+
+
 
     section.text .start span {
         font-weight: 700;
@@ -605,21 +587,40 @@
 
     }
 
-    .text h2 span:nth-child(1) {
-        text-indent: 15px;
-        text-align: justify;
+    .text div.start h2 {
+        font-size: 3rem;
     }
+
+
+
+    .text div:nth-child(2) p span:nth-child(1) {
+        font-size: .9rem;
+        margin-top: 20px;
+
+    }
+
+    .text div:nth-child(2) p span:nth-child(2) {
+        font-size: 2rem;
+        margin-top: 20px;
+
+    }
+
+    .text span:nth-last-child(1) {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        font-weight: 700;
+
+
+
+    }
+
 
     .text span:nth-child(1) {
         display: block;
     }
 
-    .text span:nth-last-child(2) {
-        margin-top: 20px;
-        display: block;
-        text-align: center;
-        font-weight: 700;
-    }
+
 
 
     .text div {
@@ -628,6 +629,7 @@
 
     .text div.visible {
         display: block;
+
     }
 
     .text .visible1 {

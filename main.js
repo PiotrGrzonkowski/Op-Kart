@@ -1,12 +1,8 @@
 function setIndex() {
     const li = [...document.querySelectorAll(".list>li")];
     const div = [...document.querySelectorAll('section.text>div')];
-
     const liNested = [...document.querySelectorAll(".list li ul li")];
     const divNested = [...document.querySelectorAll('section.text div>div')];
-
-
-
 
     let counter = 0;
 
@@ -21,6 +17,18 @@ function setIndex() {
         }
 
     }
+
+    setTimeout(() => {
+        document.querySelector(".main p").classList.add("end");
+    }, 1000);
+
+    setTimeout(() => {
+        document.querySelector(`.list>li[data-key="0"]`).classList.add("active");
+        const div = document.querySelector(`section.text>div[data-key="0"]`);
+        div.classList.add("visible");
+        div.classList.remove('noVisible')
+
+    }, 1600);
 }
 
 setIndex();
@@ -34,8 +42,8 @@ liToggleClass = e => {
     const li = document.querySelector(`.list>li[data-key="${index}"]`);
     const div = document.querySelector(`section.text>div[data-key="${index}"]`);
     const a = document.querySelector(`a[data-key="${index}"]`);
-    const p = document.querySelector(".main p");
-    p.classList.remove("start");
+
+
 
 
     if (e.target.dataset.key.length === 1) {
